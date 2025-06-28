@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Story History</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='story.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script>
+        const dark = localStorage.getItem("darkMode") === "true";
+        if (dark) document.documentElement.classList.add("dark");
+    </script>
+</head>
+<body>
+    <button id="darkModeToggle" class="buttonstyle">🌙 Dark Mode</button>
+    <div class="container">
+        <h1>Story History</h1>
+        {% if stories %}
+            {% for id, prompt, story in stories %}
+                <div class="history-card">
+                    <h3><strong>Prompt:</strong> {{ prompt }}</h3>
+                    <p><em>{{ story }}</em></p>
+                </div>
+            {% endfor %}
+            <form method="POST" action="{{ url_for('clear_history') }}">
+                <button type="submit" class="danger">🗑️ Delete History</button>
+            </form>
+        {% else %}
+            <p>No stories found.</p>
+        {% endif %}
+        <div class="nav-buttons">
+            <a href="{{ url_for('index') }}" class="btn-link buttonstyle">Back to Home</a>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

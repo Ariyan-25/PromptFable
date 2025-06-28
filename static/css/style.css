@@ -1,0 +1,124 @@
+
+:root {
+    --bg-color: #B9F3FC;
+    --text-color: #000000;
+    --card-bg: #F3F1F5;
+    --border-color: #ddd;
+    --cont-bg:#AEE2FF;
+    --cont-bor:#93C6E7;
+    --but-bg:#FEDEFF;
+    --but-bor:#93C6E7;
+    --but-col:black;
+    --but-hov:black;
+    --but-hov-col:#B9F3FC;
+    --dan-hov:red;
+}
+
+.dark {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --card-bg: #1e1e1e;
+    --border-color: #333;
+    --link-color: #66b2ff;
+    --cont-bg:#1e1e1e;
+    --cont-bor:#FEDEFF;
+    /* --but-bg:;
+    --but-bor:;
+    --but-col:; */
+    --but-hov:#FEDEFF;
+    --but-hov-col:black;
+    --dan-hov:red;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 2rem;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 700px;
+    margin: auto;
+    border: 2px solid var(--cont-bor);
+    border-radius: 25px;
+    background-color: var(--cont-bg);
+    padding: 2rem;
+}
+
+
+input[type="text"] {
+    width: 70%;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--link-color);
+    color: white;
+    cursor: pointer;
+}
+
+button.danger {
+    margin-top: 5px;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    border: 1px solid rgb(209, 94, 94);
+}
+button.danger:hover{
+    background-color: var(--dan-hov);
+}
+
+#darkModeToggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    z-index: 1000;
+}
+
+.result, .history-card {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--card-bg);
+}
+
+.nav-buttons {
+    margin-top: 2rem;
+}
+
+a.btn-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+.buttonstyle{
+    background-color: var(--but-bg);
+    color: var(--but-col);
+    border: 2px solid  var(--but-bor);
+}
+
+
+.buttonstyle:hover{
+    background-color: var(--but-hov);
+    color: var(--but-hov-col);
+}
+
+#loading {
+    margin-top: 1rem;
+    font-style: italic;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PromptFable</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='story.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script>
+        // Prevent flash by setting theme before page loads
+        const dark = localStorage.getItem("darkMode") === "true";
+        if (dark) document.documentElement.classList.add("dark");
+    </script>
+</head>
+<body>
+    <button id="darkModeToggle" class="buttonstyle">🌙 Dark Mode</button>
+    <div class="container">
+        <h1>PromptFable</h1>
+        <form method="POST" action="{{ url_for('generate') }}" onsubmit="showLoading()">
+            <input type="text" name="prompt" placeholder="Enter your story idea..." required>
+            <button type="submit" class="buttonstyle">Generate</button>
+        </form>
+
+        <div id="loading" style="display:none;">
+            <p id="typing"><em>Writing the story</em></p>
+        </div>
+
+        {% if story %}
+        <div class="result">
+            <h2>Story:</h2>
+            <p><em>{{ story }}</em></p>
+        </div>
+        {% endif %}
+
+        <div class="nav-buttons">
+            <a href="{{ url_for('history') }}" class="btn-link buttonstyle">View History</a>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
