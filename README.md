@@ -47,6 +47,4 @@ PromptFable allows users to:
 
 ---
 
-## How to Run
 
-1. Install Ollama and download the LLaMA 3 model:
